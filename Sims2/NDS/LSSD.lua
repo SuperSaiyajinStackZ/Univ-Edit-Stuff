@@ -103,7 +103,7 @@ end
 
 local function Main() -- Main function call.
 	UniversalEdit.StatusMSG("Display the offsets of the 3 active Save Slots from your Sav of The Sims 2 NDS.\n\nTool created by SuperSaiyajinStackZ.", 0);
-	local Detected = DisplayDetected(); -- Displays the detected Savefile and displays it.
+	local Detected = DisplayDetected(); -- Displays the detected Savefile and return if it's a valid save.
 	local Running = Detected;
 
 	while(Running) do
