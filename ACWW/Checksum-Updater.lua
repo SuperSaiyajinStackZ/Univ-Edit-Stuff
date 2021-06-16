@@ -103,7 +103,7 @@ end
 
 
 local function Main() -- Main function call.
-	UniversalEdit.StatusMSG("Fix the checksum of your Animal Crossing: Wild World Savefile with this tool.\n\nTool created by SuperSaiyajinStackZ.", 0);
+	UniversalEdit.StatusMSG("Fix the checksum of your Animal Crossing: Wild World Savefile with this Tool.\n\nTool created by SuperSaiyajinStackZ.\nVersion of this Tool: v0.1.0.", 0);
 
 	local Region = DisplayDetected(); -- Displays the detected Savefile and return the region.
 	

@@ -181,7 +181,7 @@ end
 
 
 local function Main() -- Main function call.
-	UniversalEdit.StatusMSG("Update the Checksum of a Save Slot or the Settings of an The Sims 2 GBA or NDS Savefile with this Tool.\n\nTool created by SuperSaiyajinStackZ.\nVersion of this tool: v0.1.0.", 0);
+	UniversalEdit.StatusMSG("Update the Checksum of a Save Slot or the Settings of an The Sims 2 GBA or NDS Savefile with this Tool.\n\nTool created by SuperSaiyajinStackZ.\nVersion of this Tool: v0.1.0.", 0);
 
 	local Detected = DisplayDetected(); -- Displays the detected Savefile and decide, if the action will run.
 	local Running = (Detected ~= -1);

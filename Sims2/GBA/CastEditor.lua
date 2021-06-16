@@ -237,8 +237,8 @@ end
 
 
 local function Main() -- Main function call.
-	UniversalEdit.StatusMSG("A small The Sims 2 GBA Cast Save Editor Tool.\n\nTool created by SuperSaiyajinStackZ.", 0);
-	local Detected = DisplayDetected(); -- Displays the detected Savefile and displays it.
+	UniversalEdit.StatusMSG("A small The Sims 2 GBA Cast Save Editor Tool.\n\nTool created by SuperSaiyajinStackZ.\nVersion of this Tool: v0.1.0.", 0);
+	local Detected = DisplayDetected(); -- Displays the detected Savefile and return if it's a valid save.
 	local Running = Detected;
 	local CastSelectorRunning = false;
 	local CastEditorRunning = false;
