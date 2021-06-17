@@ -143,7 +143,7 @@ local function SetEPStateMass(Slot)
 end
 
 local function Main() -- Main function call.
-	UniversalEdit.StatusMSG("A small The Sims 2 GBA Episode Save Editor Tool.\n\nTool created by SuperSaiyajinStackZ.\nVersion of this Tool: v0.1.0.", 0);
+	UniversalEdit.StatusMSG("A small The Sims 2 GBA Episode Save Editor Tool.\n\nTool created by SuperSaiyajinStackZ.\nVersion of this Tool: v0.2.0.", 0);
 	local Detected = DisplayDetected(); -- Displays the detected Savefile and return if it's a valid save.
 	local Running = Detected;
 	local EpisodeSelectorRunning = false;
@@ -158,7 +158,7 @@ local function Main() -- Main function call.
 			EpisodeSelectorRunning = true;
 
 			while(EpisodeSelectorRunning) do
-				local Episode = UniversalEdit.SelectJSONList("Select the episode you want to edit.", "sdmc:/3ds/Universal-Edit/Hex-Editor/Scripts/Sims2/GBA/Strings/Episode.json");
+				local Episode = UniversalEdit.SelectJSONList("Select the episode you want to edit.", UniversalEdit.BasePath() .."Hex-Editor/Scripts/Sims2/GBA/Strings/Episode.json");
 
 				if (Episode > -1) then
 					EpisodeEditorRunning = true;
@@ -167,7 +167,7 @@ local function Main() -- Main function call.
 						local SelectedOption = UniversalEdit.SelectList("What do you want to do?", { "Edit Episode Ratings", "Edit Episode State", "Exit" });
 
 						if (SelectedOption == 0) then -- Edit Episode Rating.
-							local SelectedRating = UniversalEdit.SelectJSONList("Select the rating category you want to edit.", "sdmc:/3ds/Universal-Edit/Hex-Editor/Scripts/Sims2/GBA/Strings/Rating.json");
+							local SelectedRating = UniversalEdit.SelectJSONList("Select the rating category you want to edit.", UniversalEdit.BasePath() .."Hex-Editor/Scripts/Sims2/GBA/Strings/Rating.json");
 
 							if (SelectedRating > -1) then
 								if (SelectedRating < 4) then -- Single episode editing.
