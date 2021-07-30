@@ -1,3 +1,13 @@
+--[[
+	Animal Crossing: Wild World Checksum-Updater for Universal-Edit-Hex.
+
+	This is a small Animal Crossing: Wild World Checksum-Updater, which can fix your Savefile, if it's bad / invalid.
+	What it includes should actually be pretty self-explanatory.
+
+	Copyright (C) by SuperSaiyajinStackZ 2021.
+]]
+
+
 local GameCodes = {
 	[0] = 0xC5, -- EUR.
 	[1] = 0x8A, -- USA.
@@ -21,7 +31,7 @@ local ChecksumOffset = {
 
 
 --[[
-	Detect the Savtype of an AC:WW Save.
+	Detect the Savtype of an Animal Crossing: Wild World Savefile.
 
 	Returns -1 for not match, 0 for EUR, 1 for USA, 2 for JPN and 3 for KOR.
 ]]
@@ -29,7 +39,7 @@ local function DetectACWWSav()
 	local SavSize = UniversalEdit.FileSize();
 	local Region = -1;
 
-	-- The sizes below are valid AC:WW Savesizes.
+	-- The sizes below are valid Animal Crossing: Wild World Savesizes.
 	if ((SavSize == 0x40000) or (SavSize == 0x4007A) or (SavSize == 0x80000) or (SavSize == 0x8007A)) then
 		for Idx = 0, 3 do -- Go through all 4 regions.
 			if ((UniversalEdit.Read(0x0, 0x1)[0] == GameCodes[Idx]) and (UniversalEdit.Read(SavCopyOffsets[Idx], 0x1)[0] == GameCodes[Idx])) then
@@ -41,6 +51,7 @@ local function DetectACWWSav()
 
 	return Region;
 end
+
 
 -- Displays the detected Region as a Status Message and return the index.
 local function DisplayDetected()
@@ -57,14 +68,15 @@ local function DisplayDetected()
 		UniversalEdit.StatusMSG(Regions[Region], 0);
 
 	else
-		UniversalEdit.StatusMSG("Not a valid AC:WW Save.", -1);
+		UniversalEdit.StatusMSG("Not a valid Animal Crossing: Wild World Savefile.", -1);
 	end
 
 	return Region;
 end
 
+
 --[[
-	Calculates the checksum for the Savefile.
+	Calculates the Checksum for the Savefile.
 
 	Region: The Region which got detected.
 	
@@ -83,8 +95,9 @@ local function CalculateChecksum(Region)
 	return 0x10000 - ChecksVar;
 end
 
+
 --[[
-	Returns if the checksum is valid.
+	Returns if the Checksum is valid.
 
 	Region: The Region which got detected.
 
@@ -103,9 +116,9 @@ end
 
 
 local function Main() -- Main function call.
-	UniversalEdit.StatusMSG("Fix the checksum of your Animal Crossing: Wild World Savefile with this Tool.\n\nTool created by SuperSaiyajinStackZ.\nVersion of this Tool: v0.1.0.", 0);
+	UniversalEdit.StatusMSG("Fix the checksum of your Animal Crossing: Wild World Savefile with this Tool.\n\nTool created by SuperSaiyajinStackZ.\nVersion of this Tool: v0.2.0.", 0);
 
-	local Region = DisplayDetected(); -- Displays the detected Savefile and return the region.
+	local Region = DisplayDetected(); -- Displays the detected Savefile and return the Region index.
 	
 	if (Region > -1) then
 		local Res = ChecksumValid(Region);
@@ -114,21 +127,22 @@ local function Main() -- Main function call.
 			local DoAction = UniversalEdit.Prompt("The checksum is invalid.\n\nWould you like to fix it?");
 
 			if (DoAction) then
-				-- Fix the checksum.
-				UniversalEdit.ProgressMessage("Fixing the checksum...");
+				-- Fix the Checksum.
+				UniversalEdit.ProgressMessage("Fixing the Checksum...");
 				UniversalEdit.Write(ChecksumOffset[Region], { Res }, "uint16_t");
 
-				-- Copy first Savcopy to the second one.
+				-- Copy first Savecopy to the second one.
 				local MainCopy = UniversalEdit.Read(0x0, SavCopyOffsets[Region]);
-				UniversalEdit.ProgressMessage("Copying to second Savcopy...");
+				UniversalEdit.ProgressMessage("Copying to second Savecopy...");
 				UniversalEdit.Write(SavCopyOffsets[Region], MainCopy);
 			end
 		
 		else
-			UniversalEdit.StatusMSG("The savefile has a valid checksum already.", 0);
+			UniversalEdit.StatusMSG("The Savefile has a valid checksum already.", 0);
 		end
 	end
 end
+
 
 -- Main function.
 Main();

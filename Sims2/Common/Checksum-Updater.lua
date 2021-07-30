@@ -1,44 +1,53 @@
--- Keep them here.
+--[[
+	The Sims 2 Game Boy Advance and Nintendo DS Checksum-Updater for Universal-Edit-Hex.
+
+	This is a small The Sims 2 Game Boy Advance and Nintendo DS Checksum-Updater, which can fix your Savefile, if it's bad / invalid.
+	What it includes should actually be pretty self-explanatory.
+
+	Copyright (C) by SuperSaiyajinStackZ 2021.
+]]
+
+
 local GBAIdent = { [0] = 0x53, [1] = 0x54, [2] = 0x57, [3] = 0x4E, [4] = 0x30, [5] = 0x32, [6] = 0x34 }; -- GBA Header Identifier.
 local NDSIdent = { [0] = 0x64, [1] = 0x61, [2] = 0x74, [3] = 0x0, [4] = 0x20, [5] = 0x0, [6] = 0x0, [7] = 0x0 }; -- NDS Header Identifier.
 
 
 --[[
-	Check the file for GBA or NDS Saves.
+	Check the active file for a The Sims 2 Game Boy Advance or Nintendo DS Savefile.
 
-	Returns -1 for invalid, 0 for GBA and 1 for NDS.
+	Returns -1 for invalid, 0 for Game Boy Advance and 1 for Nintendo DS.
 ]]
 local function CheckFile()
 	local Count = 0;
-	local FileSize = UniversalEdit.FileSize(); -- Get the filesize.
+	local FileSize = UniversalEdit.FileSize(); -- Get the Filesize.
 	local Res = -1;
 
-	if (FileSize == 0x10000) or (FileSize == 0x20000) then -- 64 and 128 KB are GBA Save Sizes.
+	if (FileSize == 0x10000) or (FileSize == 0x20000) then -- 64 and 128 KB are The Sims 2 Game Boy Advance Save Sizes.
 		local Buffer = UniversalEdit.Read(0x0, 0x7); -- Read 7 uint8_t's starting at offset 0x0.
 
-		for Idx = 0, 6 do -- Go through the Idents.
+		for Idx = 0, 6 do -- Go through the Identifiers.
 			if (Buffer[Idx] == GBAIdent[Idx]) then
 				Count = Count + 1; -- Increase count by 1.
 			end
 		end
 
 		if (Count == 7) then
-			Res = 0; -- It's a GBA SAV.
+			Res = 0; -- It's a The Sims 2 Game Boy Advance Savefile.
 		end
 	
-	elseif (FileSize == 0x40000) or (FileSize == 0x80000) then -- 256 and 512 KB are NDS Save Sizes.
+	elseif (FileSize == 0x40000) or (FileSize == 0x80000) then -- 256 and 512 KB are The Sims 2 Nintendo DS Save Sizes.
 		for Slot = 0, 4 do -- Check for all 5 possible Save Slots.
 			local Buffer = UniversalEdit.Read((Slot * 0x1000), 0x8); -- Read 8 uint8_t's starting at offset 0x0 of the slot.
 			Count = 0; -- Reset Count here.
 	
-			for Idx = 0, 7 do -- Go through the Idents.
+			for Idx = 0, 7 do -- Go through the Identifiers.
 				if (Buffer[Idx] == NDSIdent[Idx]) then
 					Count = Count + 1; -- Increase count by 1.
 				end
 			end
 	
 			if (Count == 8) then
-				Res = 1; -- It's a NDS SAV.
+				Res = 1; -- It's a The Sims 2 Nintendo DS Savefile.
 				break;
 			end
 		end
@@ -47,11 +56,12 @@ local function CheckFile()
 	return Res;
 end
 
---[[
-	Calculate the checksum.
 
-	StartOffs: The offset where to start.
-	Size: The size to calculate.
+--[[
+	Calculate the Checksum.
+
+	StartOffs: The Offset where to start.
+	Size: The size to Calculate.
 	AmountOfSkips: The amount of offsets to skip.
 	SkipOffs: A table with the offsets to skip.
 
@@ -96,8 +106,9 @@ local function Calc(StartOffs, Size, AmountOfSkips, SkipOffs)
 	return (256 * (256 - Byte2)) + (256 - Byte1);
 end
 
+
 --[[
-	Handle the GBA Slot Checksum Action.
+	Handle the Game Boy Advance Slot Checksum Action.
 ]]
 local function CalcGBASlot(Slot)
 	local CurCHKS = UniversalEdit.Read(Slot * 0x1000 + 0xFFE, 1, "uint16_t")[0]; -- Read the current checksum of the slot.
@@ -116,8 +127,9 @@ local function CalcGBASlot(Slot)
 	end
 end
 
+
 --[[
-	Handle the NDS Slot Checksum Action.
+	Handle the Nintendo DS Slot Checksum Action.
 ]]
 local function CalcNDSSlot(Slot)
 	local CurCHKS = UniversalEdit.Read((Slot * 0x1000) + 0x28, 1, "uint16_t")[0];
@@ -138,8 +150,9 @@ local function CalcNDSSlot(Slot)
 	end
 end
 
+
 --[[
-	Handle the GBA Settings Checksum Action.
+	Handle the Game Boy Advance Settings Checksum Action.
 ]]
 local function CalcGBASettings()
 	local CurCHKS = UniversalEdit.Read(0xE, 1, "uint16_t")[0];
@@ -158,22 +171,23 @@ local function CalcGBASettings()
 	end
 end
 
---[[
-	Detect and display the detected Save.
 
-	Returns -1 for invalid, 0 for GBA and 1 for NDS.
+--[[
+	Detect and display the detected Savefile.
+
+	Returns -1 for invalid, 0 for Game Boy Advance and 1 for Nintendo DS.
 ]]
 local function DisplayDetected()
-	local Res = CheckFile(); -- Check the file for a valid save.
+	local Res = CheckFile(); -- Check the file for a valid Savefile.
 
 	if (Res == -1) then
-		UniversalEdit.StatusMSG("The current file is not a valid The Sims 2 GBA or The Sims 2 NDS Savefile.", -1);
+		UniversalEdit.StatusMSG("The current file is not a valid The Sims 2 Game Boy Advance or The Sims 2 Nintendo DS Savefile.", -1);
 
 	elseif (Res == 0) then
-		UniversalEdit.StatusMSG("Detected a The Sims 2 GBA Savefile.", 0);
+		UniversalEdit.StatusMSG("Detected a The Sims 2 Game Boy Advance Savefile.", 0);
 
 	elseif (Res == 1) then
-		UniversalEdit.StatusMSG("Detected a The Sims 2 NDS Savefile.", 0);
+		UniversalEdit.StatusMSG("Detected a The Sims 2 Nintendo DS Savefile.", 0);
 	end
 
 	return Res;
@@ -181,7 +195,7 @@ end
 
 
 local function Main() -- Main function call.
-	UniversalEdit.StatusMSG("Update the Checksum of a Save Slot or the Settings of an The Sims 2 GBA or NDS Savefile with this Tool.\n\nTool created by SuperSaiyajinStackZ.\nVersion of this Tool: v0.1.0.", 0);
+	UniversalEdit.StatusMSG("Update the Checksum of a Save Slot or the Settings of an The Sims 2 Game Boy Advance or Nintendo DS Savefile with this Tool.\n\nTool created by SuperSaiyajinStackZ.\nVersion of this Tool: v0.2.0.", 0);
 
 	local Detected = DisplayDetected(); -- Displays the detected Savefile and decide, if the action will run.
 	local Running = (Detected ~= -1);
@@ -220,6 +234,7 @@ local function Main() -- Main function call.
 		end
 	end
 end
+
 
 -- Main function.
 Main();
