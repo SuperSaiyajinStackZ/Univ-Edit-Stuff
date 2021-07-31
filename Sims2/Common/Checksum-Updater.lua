@@ -4,6 +4,14 @@
 	This is a small The Sims 2 Game Boy Advance and Nintendo DS Checksum-Updater, which can fix your Savefile, if it's bad / invalid.
 	What it includes should actually be pretty self-explanatory.
 
+	History:
+	v0.1.0: Added initial implementation of the Checksum-Updater.
+
+	v0.2.0: Added Header with informations to the Script.
+
+	v0.3.0: Added History to the Header and also detect if a The Sims 2 Game Boy Advance Slot exist at all.
+
+
 	Copyright (C) by SuperSaiyajinStackZ 2021.
 ]]
 
@@ -111,19 +119,26 @@ end
 	Handle the Game Boy Advance Slot Checksum Action.
 ]]
 local function CalcGBASlot(Slot)
-	local CurCHKS = UniversalEdit.Read(Slot * 0x1000 + 0xFFE, 1, "uint16_t")[0]; -- Read the current checksum of the slot.
-	local Calced = Calc(Slot * 0x1000, 0xFFE, 0, { 0 });
+	local Exist = UniversalEdit.Read((Slot * 0x1000) + 0xD, 1, "uint8_t")[0] ~= 0x0; -- It only exist, if 0xD of the Save Slot is NOT 0x0.
 
-	if (CurCHKS ~= Calced) then -- At this point, the checksum and the calculated result is NOT identical and invalid.
-		local ShouldFix = UniversalEdit.Prompt("Slot " .. tostring(Slot) .. " doesn't match the calculated checksum!\n\nDo you want to fix it's Checksum?");
+	if (Exist) then
+		local CurCHKS = UniversalEdit.Read(Slot * 0x1000 + 0xFFE, 1, "uint16_t")[0]; -- Read the current checksum of the slot.
+		local Calced = Calc(Slot * 0x1000, 0xFFE, 0, { 0 });
 
-		if (ShouldFix) then
-			UniversalEdit.Write(Slot * 0x1000 + 0xFFE, { Calced }, "uint16_t");
-			UniversalEdit.StatusMSG("Checksum of Slot " .. tostring(Slot) .. " fixed.", 0);
+		if (CurCHKS ~= Calced) then -- At this point, the checksum and the calculated result is NOT identical and invalid.
+			local ShouldFix = UniversalEdit.Prompt("Slot " .. tostring(Slot) .. " doesn't match the calculated checksum!\n\nDo you want to fix it's Checksum?");
+
+			if (ShouldFix) then
+				UniversalEdit.Write(Slot * 0x1000 + 0xFFE, { Calced }, "uint16_t");
+				UniversalEdit.StatusMSG("Checksum of Slot " .. tostring(Slot) .. " fixed.", 0);
+			end
+
+		else
+			UniversalEdit.StatusMSG("Checksum of Slot " .. tostring(Slot) .. " is already valid.", 0);
 		end
 
 	else
-		UniversalEdit.StatusMSG("Checksum of Slot " .. tostring(Slot) .. " is already valid.", 0);
+		UniversalEdit.StatusMSG("Slot " .. tostring(Slot) .. " doesn't exist.\n\nPossible Reason: 0xD of the Slot is 0x0, which is the first character of the Sim Name. It MUST be larger as 0x0 to be detected.", -2);
 	end
 end
 
@@ -195,7 +210,7 @@ end
 
 
 local function Main() -- Main function call.
-	UniversalEdit.StatusMSG("Update the Checksum of a Save Slot or the Settings of an The Sims 2 Game Boy Advance or Nintendo DS Savefile with this Tool.\n\nTool created by SuperSaiyajinStackZ.\nVersion of this Tool: v0.2.0.", 0);
+	UniversalEdit.StatusMSG("Update the Checksum of a Save Slot or the Settings of an The Sims 2 Game Boy Advance or Nintendo DS Savefile with this Tool.\n\nTool created by SuperSaiyajinStackZ.\nVersion of this Tool: v0.3.0.", 0);
 
 	local Detected = DisplayDetected(); -- Displays the detected Savefile and decide, if the action will run.
 	local Running = (Detected ~= -1);
