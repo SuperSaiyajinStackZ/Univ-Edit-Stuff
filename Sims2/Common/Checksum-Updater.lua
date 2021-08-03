@@ -11,19 +11,21 @@
 
 	v0.3.0: Added History to the Header and also detect if a The Sims 2 Game Boy Advance Slot exist at all.
 
+	v0.4.0: Added The Sims 2 Nintendo DS USA and Japanese support. All the versions can be detected by checking the 5th byte on the header with: 0x1F being USA, 0x20 being EUR and 0x21 being JPN.
+
 
 	Copyright (C) by SuperSaiyajinStackZ 2021.
 ]]
 
 
 local GBAIdent = { [0] = 0x53, [1] = 0x54, [2] = 0x57, [3] = 0x4E, [4] = 0x30, [5] = 0x32, [6] = 0x34 }; -- GBA Header Identifier.
-local NDSIdent = { [0] = 0x64, [1] = 0x61, [2] = 0x74, [3] = 0x0, [4] = 0x20, [5] = 0x0, [6] = 0x0, [7] = 0x0 }; -- NDS Header Identifier.
+local NDSIdent = { [0] = 0x64, [1] = 0x61, [2] = 0x74, [3] = 0x0, [4] = 0x1F, [5] = 0x0, [6] = 0x0, [7] = 0x0 }; -- NDS Header Identifier. NOTE: 0x1F: USA, 0x20: EUR, 0x21: JPN.
 
 
 --[[
 	Check the active file for a The Sims 2 Game Boy Advance or Nintendo DS Savefile.
 
-	Returns -1 for invalid, 0 for Game Boy Advance and 1 for Nintendo DS.
+	Returns -1 for invalid, 0 for Game Boy Advance and 1 for Nintendo DS USA, 2 for Nintendo DS EUR, 3 for Nintendo DS JPN.
 ]]
 local function CheckFile()
 	local Count = 0;
@@ -44,19 +46,31 @@ local function CheckFile()
 		end
 	
 	elseif (FileSize == 0x40000) or (FileSize == 0x80000) then -- 256 and 512 KB are The Sims 2 Nintendo DS Save Sizes.
+
 		for Slot = 0, 4 do -- Check for all 5 possible Save Slots.
 			local Buffer = UniversalEdit.Read((Slot * 0x1000), 0x8); -- Read 8 uint8_t's starting at offset 0x0 of the slot.
-			Count = 0; -- Reset Count here.
+
+			for Reg = 0, 2 do -- Go through all regions.
+				Count = 0; -- Reset Count here.
 	
-			for Idx = 0, 7 do -- Go through the Identifiers.
-				if (Buffer[Idx] == NDSIdent[Idx]) then
-					Count = Count + 1; -- Increase count by 1.
+				for Idx = 0, 7 do -- Go through the Identifiers.
+
+					if (Idx == 0x4) then -- 0x4 --> region specific uint8_t.
+						if (Buffer[Idx] == NDSIdent[Idx] + Reg) then
+							Count = Count + 1; -- Increase count by 1.
+						end
+
+					else
+						if (Buffer[Idx] == NDSIdent[Idx]) then
+							Count = Count + 1; -- Increase count by 1.
+						end
+					end
 				end
-			end
 	
-			if (Count == 8) then
-				Res = 1; -- It's a The Sims 2 Nintendo DS Savefile.
-				break;
+				if (Count == 8) then
+					Res = 1 + Reg; -- It's a The Sims 2 Nintendo DS Savefile.
+					break;
+				end
 			end
 		end
 	end
@@ -202,7 +216,13 @@ local function DisplayDetected()
 		UniversalEdit.StatusMSG("Detected a The Sims 2 Game Boy Advance Savefile.", 0);
 
 	elseif (Res == 1) then
-		UniversalEdit.StatusMSG("Detected a The Sims 2 Nintendo DS Savefile.", 0);
+		UniversalEdit.StatusMSG("Detected a The Sims 2 Nintendo DS USA Savefile.", 0);
+
+	elseif (Res == 2) then
+		UniversalEdit.StatusMSG("Detected a The Sims 2 Nintendo DS EUR Savefile.", 0);
+
+	elseif (Res == 3) then
+		UniversalEdit.StatusMSG("Detected a The Sims 2 Nintendo DS JPN Savefile.", 0);
 	end
 
 	return Res;
@@ -210,7 +230,7 @@ end
 
 
 local function Main() -- Main function call.
-	UniversalEdit.StatusMSG("Update the Checksum of a Save Slot or the Settings of an The Sims 2 Game Boy Advance or Nintendo DS Savefile with this Tool.\n\nTool created by SuperSaiyajinStackZ.\nVersion of this Tool: v0.3.0.", 0);
+	UniversalEdit.StatusMSG("Update the Checksum of a Save Slot or the Settings of an The Sims 2 Game Boy Advance or Nintendo DS Savefile with this Tool.\n\nTool created by SuperSaiyajinStackZ.\nVersion of this Tool: v0.4.0.", 0);
 
 	local Detected = DisplayDetected(); -- Displays the detected Savefile and decide, if the action will run.
 	local Running = (Detected ~= -1);
@@ -233,7 +253,7 @@ local function Main() -- Main function call.
 				Running = false; -- break the loop.
 			end
 
-		elseif (Detected == 1) then -- Handle NDS things.
+		elseif (Detected >= 1 and Detected <= 3) then -- Handle NDS things.
 			local SelectedOption = UniversalEdit.SelectList("What do you want to do?", { "Check Slot Checksum", "Exit" });
 
 			if (SelectedOption == 0) then -- Check Slot Checksum.
