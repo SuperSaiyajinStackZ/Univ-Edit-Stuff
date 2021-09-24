@@ -17,14 +17,23 @@ Those will be stored in separate folders, those would be the following:
 * Animal Crossing: Wild World: `scripts/ACWW/` (The base directory for Animal Crossing Wild World).
 
 * The Urbz: Sims in the City `scripts/Urbz/` (The base directory for The Urbz: Sims in the City GBA and NDS).
-* The Urbz: Sims in the City GBA: `scripts/Urbz/GBA/`(From Checksum-Updater up to some editing tools for The Urbz: Sims in the City GBA).
-* The Urbz: Sims in the City NDS: `scripts/Urbz/NDS/`(From Checksum-Updater up to some editing tools for The Urbz: Sims in the City NDS).
+* The Urbz: Sims in the City GBA: `scripts/Urbz/GBA/` (From Checksum-Updater up to some editing tools for The Urbz: Sims in the City GBA).
+* The Urbz: Sims in the City NDS: `scripts/Urbz/NDS/` (From Checksum-Updater up to some editing tools for The Urbz: Sims in the City NDS).
 * The Urbz: Sims in the City `scripts/Urbz/Common/` (Some shared things related for The Urbz: Sims in the City GBA and NDS).
 
 
 You can find Universal-Edit-Hex [here](https://github.com/Universal-Team/Universal-Edit-Hex). (This version is used for save editing related stuff for this repository).
 
 You can find Universal-Edit [here](https://github.com/Universal-Team/Universal-Edit). (This version is used for some text editing related stuff for this repository).
+
+## UniStore
+
+Yes, you can also download all of the stuff from Universal-Updater with the `stack-univ-edit` UniStore. The UniStore can be found in the `unistore` folder.
+
+Alternatively, you can just scan the following QR Code on Universal-Updater under `Settings Tab` -> `Select UniStore` -> `PLUS icon on the bottom right` -> `QR Code icon on the bottom left`.
+
+![](https://github.com/SuperSaiyajinStackZ/Univ-Edit-Stuff/blob/main/unistore/stack-univ-edit.png)
+
 
 ## Credits
 - [SuperSaiyajinStackZ](https://github.com/SuperSaiyajinStackZ): Owner of this repository and creator of the scripts, labels and co.
