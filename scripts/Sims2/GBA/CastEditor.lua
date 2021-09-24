@@ -283,13 +283,15 @@ end
 
 
 local function Main() -- Main function call.
-	UniversalEdit.StatusMSG("A small The Sims 2 Game Boy Advance Cast Member Save Editor Tool.\n\nTool created by SuperSaiyajinStackZ.\nVersion of this Tool: v0.4.0.", 0);
+	UniversalEdit.StatusMSG("A small The Sims 2 Game Boy Advance Cast Member Save Editor Tool.\n\nTool created by SuperSaiyajinStackZ.\nVersion of this Tool: v0.5.0.", 0);
 	local Detected = DisplayDetected(); -- Displays the detected Savefile and return if it's a valid Savefile.
 	local Running = Detected;
 	local CastSelectorRunning = false;
 	local CastEditorRunning = false;
 
-	Running = UniversalEdit.Prompt("This Tool expects a \"Cast.json\" inside the \"Scripts/Sims2/GBA/Strings/\" directory.\n\nDo you have one placed inside it?");
+	if Detected then
+		Running = UniversalEdit.Prompt("This Tool expects a \"Cast.json\" inside the \"Scripts/Sims2/GBA/Strings/\" directory.\n\nDo you have one placed inside it?");
+	end
 
 	while(Running) do
 		local Slot = UniversalEdit.SelectList("Select the Slot you want to edit.", { "Slot 1", "Slot 2", "Slot 3", "Slot 4", "Exit" });

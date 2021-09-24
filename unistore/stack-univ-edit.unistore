@@ -5,143 +5,159 @@
 		"description": "SuperSaiyajinStackZ's Universal-Edit and Universal-Edit-Hex related stuff into a UniStore!\n\nFrom Save Editing Tool scripts up to other stuff, you can find it here.",
 		"url": "https://github.com/SuperSaiyajinStackZ/Univ-Edit-Stuff/raw/main/unistore/stack-univ-edit.unistore",
 		"file": "stack-univ-edit.unistore",
-		"revision": 1,
+		"revision": 2,
 		"version": 3
 	},
 	"storeContent": [
 		{
 			"info": {
-				"title": "The Sims 2 GBA NDS Common Scripts",
+				"title": "The Sims 2 GBA NDS Checksum-Updater",
 				"author": "SuperSaiyajinStackZ",
-				"description": "Common Scripts for The Sims 2 Game Boy Advance and Nintendo DS for Universal-Edit-Hex.",
-				"category": [ "Sims 2", "Common", "UniversalEditHex" ],
+				"description": "Update the Checksum of a Save Slot or the Settings of an The Sims 2 Game Boy Advance or Nintendo DS Savefile with this Tool.",
+				"category": [ "Sims 2", "Checksum-Updater" ],
 				"console": [ "3DS", "DSi" ],
-				"last_updated": "",
+				"last_updated": "v0.4.0",
 				"license": "gpl-3.0",
-				"version": "",
-				"screenshots": [
-					{
-						"description": "Sims 2 GBA / NDS Checksum-Updater",
-						"url": "https://raw.githubusercontent.com/SuperSaiyajinStackZ/Univ-Edit-Stuff/main/Screenshots/Sims2-Checksum-Updater.png"
-					}
-				]
+				"version": "2021-09-24",
+				"screenshots": [{
+					"description": "The Sims 2 GBA / NDS Checksum-Updater",
+					"url": "https://raw.githubusercontent.com/SuperSaiyajinStackZ/Univ-Edit-Stuff/main/Screenshots/Sims2-Checksum-Updater.png"
+				}]
 			},
-			"Checksum-Updater": [
-				{
-					"file": "https://github.com/SuperSaiyajinStackZ/Univ-Edit-Stuff/raw/main/scripts/Sims2/Common/Checksum-Updater.lua",
-					"message": "Downloading Checksum-Updater.lua...",
-					"output": "sdmc:/3ds/Universal-Edit-Hex/Scripts/Sims2/Common/Checksum-Updater.lua",
-					"type": "downloadFile"
-				}
-			]
+			"Checksum-Updater.lua":  [{
+				"file": "https://github.com/SuperSaiyajinStackZ/Univ-Edit-Stuff/raw/main/scripts/Sims2/Common/Checksum-Updater.lua",
+				"message": "Downloading Checksum-Updater.lua...",
+				"output": "sdmc:/3ds/Universal-Edit-Hex/Scripts/Sims2/Common/Checksum-Updater.lua",
+				"type": "downloadFile"
+			}]
 		},
 		{
 			"info": {
-				"title": "The Sims 2 GBA Scripts",
+				"title": "The Sims 2 GBA Cast Editor",
 				"author": "SuperSaiyajinStackZ",
-				"description": "Scripts for The Sims 2 Game Boy Advance for Universal-Edit-Hex.",
-				"category": [ "Sims 2", "Common", "GBA", "UniversalEditHex" ],
+				"description": "A small The Sims 2 Game Boy Advance Cast Member Save Editor Tool.",
+				"category": [ "Sims 2", "GBA", "Cast", "SaveEditor" ],
 				"console": [ "3DS", "DSi" ],
-				"last_updated": "",
+				"last_updated": "v0.5.0",
 				"license": "gpl-3.0",
-				"version": "",
-				"screenshots": [
-					{
-						"description": "Sims 2 GBA Cast Editor",
-						"url": "https://raw.githubusercontent.com/SuperSaiyajinStackZ/Univ-Edit-Stuff/main/Screenshots/Sims2GBA-CastEditor.png"
-					},
-					{
-						"description": "Sims 2 GBA Episode Editor",
-						"url": "https://raw.githubusercontent.com/SuperSaiyajinStackZ/Univ-Edit-Stuff/main/Screenshots/Sims2GBA-EpisodeEditor.png"
-					}
-				]
+				"version": "2021-09-24",
+				"screenshots": [{
+					"description": "The Sims 2 GBA Cast Editor",
+					"url": "https://raw.githubusercontent.com/SuperSaiyajinStackZ/Univ-Edit-Stuff/main/Screenshots/Sims2GBA-CastEditor.png"
+				}]
 			},
-			"CastEditor": [
-				{
-					"file": "https://github.com/SuperSaiyajinStackZ/Univ-Edit-Stuff/raw/main/scripts/Sims2/GBA/CastEditor.lua",
-					"message": "Downloading CastEditor.lua...",
-					"output": "sdmc:/3ds/Universal-Edit-Hex/Scripts/Sims2/GBA/CastEditor.lua",
-					"type": "downloadFile"
-				},
-				{
-					"file": "https://github.com/SuperSaiyajinStackZ/Univ-Edit-Stuff/raw/main/scripts/Sims2/GBA/Strings/Cast.json",
-					"message": "Downloading Cast.json...",
-					"output": "sdmc:/3ds/Universal-Edit-Hex/Scripts/Sims2/GBA/Strings/Cast.json",
-					"type": "downloadFile"
-				}
-			],
-			"EpisodeEditor": [
-				{
-					"file": "https://github.com/SuperSaiyajinStackZ/Univ-Edit-Stuff/raw/main/scripts/Sims2/GBA/EpisodeEditor.lua",
-					"message": "Downloading EpisodeEditor.lua...",
-					"output": "sdmc:/3ds/Universal-Edit-Hex/Scripts/Sims2/GBA/EpisodeEditor.lua",
-					"type": "downloadFile"
-				},
-				{
-					"file": "https://github.com/SuperSaiyajinStackZ/Univ-Edit-Stuff/raw/main/scripts/Sims2/GBA/Strings/Episode.json",
-					"message": "Downloading Episode.json...",
-					"output": "sdmc:/3ds/Universal-Edit-Hex/Scripts/Sims2/GBA/Strings/Episode.json",
-					"type": "downloadFile"
-				},
-				{
-					"file": "https://github.com/SuperSaiyajinStackZ/Univ-Edit-Stuff/raw/main/scripts/Sims2/GBA/Strings/Rating.json",
-					"message": "Downloading Rating.json...",
-					"output": "sdmc:/3ds/Universal-Edit-Hex/Scripts/Sims2/GBA/Strings/Rating.json",
-					"type": "downloadFile"
-				}
-			]
+			"CastEditor.lua":  [{
+				"file": "https://github.com/SuperSaiyajinStackZ/Univ-Edit-Stuff/raw/main/scripts/Sims2/GBA/CastEditor.lua",
+				"message": "Downloading CastEditor.lua...",
+				"output": "sdmc:/3ds/Universal-Edit-Hex/Scripts/Sims2/GBA/CastEditor.lua",
+				"type": "downloadFile"
+			}],
+			"Cast.json": [{
+				"file": "https://github.com/SuperSaiyajinStackZ/Univ-Edit-Stuff/raw/main/scripts/Sims2/GBA/Strings/Cast.json",
+				"message": "Downloading Cast.json...",
+				"output": "sdmc:/3ds/Universal-Edit-Hex/Scripts/Sims2/GBA/Strings/Cast.json",
+				"type": "downloadFile"
+			}]
 		},
 		{
 			"info": {
-				"title": "The Urbz: Sims in the City GBA NDS Common Scripts",
+				"title": "The Sims 2 GBA Episode Editor",
 				"author": "SuperSaiyajinStackZ",
-				"description": "Common Scripts for The Urbz: Sims in the City Game Boy Advance and Nintendo DS for Universal-Edit-Hex.",
-				"category": [ "Sims", "Common", "UniversalEditHex", "Urbz" ],
+				"description": "A small The Sims 2 Game Boy Advance Episode Save Editor Tool.",
+				"category": [ "Sims 2", "GBA", "Episode", "SaveEditor" ],
 				"console": [ "3DS", "DSi" ],
-				"last_updated": "",
+				"last_updated": "v0.5.0",
 				"license": "gpl-3.0",
-				"version": "",
-				"screenshots": [
-					{
-						"description": "The Urbz: Sims in the City Checksum-Updater",
-						"url": "https://raw.githubusercontent.com/SuperSaiyajinStackZ/Univ-Edit-Stuff/main/Screenshots/Urbz-Checksum-Updater.png"
-					}
-				]
+				"version": "2021-09-24",
+				"screenshots": [{
+					"description": "The Sims 2 GBA Episode Editor",
+					"url": "https://raw.githubusercontent.com/SuperSaiyajinStackZ/Univ-Edit-Stuff/main/Screenshots/Sims2GBA-EpisodeEditor.png"
+				}]
 			},
-			"Checksum-Updater": [
-				{
-					"file": "https://github.com/SuperSaiyajinStackZ/Univ-Edit-Stuff/raw/main/scripts/Urbz/Common/Checksum-Updater.lua",
-					"message": "Downloading Checksum-Updater.lua...",
-					"output": "sdmc:/3ds/Universal-Edit-Hex/Scripts/Urbz/Common/Checksum-Updater.lua",
-					"type": "downloadFile"
-				}
-			]
+			"EpisodeEditor.lua":  [{
+				"file": "https://github.com/SuperSaiyajinStackZ/Univ-Edit-Stuff/raw/main/scripts/Sims2/GBA/EpisodeEditor.lua",
+				"message": "Downloading EpisodeEditor.lua...",
+				"output": "sdmc:/3ds/Universal-Edit-Hex/Scripts/Sims2/GBA/EpisodeEditor.lua",
+				"type": "downloadFile"
+			}],
+			"Episode.json": [{
+				"file": "https://github.com/SuperSaiyajinStackZ/Univ-Edit-Stuff/raw/main/scripts/Sims2/GBA/Strings/Episode.json",
+				"message": "Downloading Episode.json...",
+				"output": "sdmc:/3ds/Universal-Edit-Hex/Scripts/Sims2/GBA/Strings/Episode.json",
+				"type": "downloadFile"
+			}],
+			"Rating.json": [{
+				"file": "https://github.com/SuperSaiyajinStackZ/Univ-Edit-Stuff/raw/main/scripts/Sims2/GBA/Strings/Rating.json",
+				"message": "Downloading Rating.json...",
+				"output": "sdmc:/3ds/Universal-Edit-Hex/Scripts/Sims2/GBA/Strings/Rating.json",
+				"type": "downloadFile"
+			}]
 		},
 		{
 			"info": {
-				"title": "Animal Crossing: Wild World Scripts",
+				"title": "The Sims 2 NDS Last Saved Slot Detector (LSSD)",
 				"author": "SuperSaiyajinStackZ",
-				"description": "Scripts for Animal Crossing: Wild World for Universal-Edit-Hex.",
-				"category": [ "ACWW", "UniversalEditHex", "Animal", "Crossing" ],
+				"description": "Display the offsets of the 3 active Save Slots from your Savefile of The Sims 2 Nintendo DS.",
+				"category": [ "Sims 2", "NDS", "LSSD" ],
 				"console": [ "3DS", "DSi" ],
-				"last_updated": "",
+				"last_updated": "v0.3.0",
 				"license": "gpl-3.0",
-				"version": "",
-				"screenshots": [
-					{
-						"description": "Animal Crossing: Wild World Checksum-Updater",
-						"url": "https://raw.githubusercontent.com/SuperSaiyajinStackZ/Univ-Edit-Stuff/main/Screenshots/ACWW-Checksum-Updater.png"
-					}
-				]
+				"version": "2021-09-24",
+				"screenshots": [{
+					"description": "The Sims 2 NDS Last Saved Slot Detector (LSSD)",
+					"url": "https://raw.githubusercontent.com/SuperSaiyajinStackZ/Univ-Edit-Stuff/main/Screenshots/Sims2NDS-LSSD.png"
+				}]
 			},
-			"Checksum-Updater": [
-				{
-					"file": "https://github.com/SuperSaiyajinStackZ/Univ-Edit-Stuff/raw/main/scripts/ACWW/Checksum-Updater.lua",
-					"message": "Downloading Checksum-Updater.lua...",
-					"output": "sdmc:/3ds/Universal-Edit-Hex/Scripts/ACWW/Checksum-Updater.lua",
-					"type": "downloadFile"
-				}
-			]
+			"LSSD.lua":  [{
+				"file": "https://github.com/SuperSaiyajinStackZ/Univ-Edit-Stuff/raw/main/scripts/Sims2/NDS/LSSD.lua",
+				"message": "Downloading LSSD.lua...",
+				"output": "sdmc:/3ds/Universal-Edit-Hex/Scripts/Sims2/NDS/LSSD.lua",
+				"type": "downloadFile"
+			}]
+		},
+		{
+			"info": {
+				"title": "The Urbz: Sims in the City GBA NDS Checksum-Updater",
+				"author": "SuperSaiyajinStackZ",
+				"description": "Update the Checksum of a Save Slot or the Settings of an The Urbz: Sims in the City Game Boy Advance or Nintendo DS Savefile with this Tool.",
+				"category": [ "Sims", "Urbz", "GBA", "NDS", "Checksum-Updater" ],
+				"console": [ "3DS", "DSi" ],
+				"last_updated": "v0.1.0",
+				"license": "gpl-3.0",
+				"version": "2021-09-24",
+				"screenshots": [{
+					"description": "The Urbz: Sims in the City Checksum-Updater",
+					"url": "https://raw.githubusercontent.com/SuperSaiyajinStackZ/Univ-Edit-Stuff/main/Screenshots/Urbz-Checksum-Updater.png"
+				}]
+			},
+			"Checksum-Updater.lua":  [{
+				"file": "https://github.com/SuperSaiyajinStackZ/Univ-Edit-Stuff/raw/main/scripts/Urbz/Common/Checksum-Updater.lua",
+				"message": "Downloading Checksum-Updater.lua...",
+				"output": "sdmc:/3ds/Universal-Edit-Hex/Scripts/Urbz/Common/Checksum-Updater.lua",
+				"type": "downloadFile"
+			}]
+		},
+		{
+			"info": {
+				"title": "Animal Crossing: Wild World Checksum-Updater",
+				"author": "SuperSaiyajinStackZ",
+				"description": "Fix the checksum of your Animal Crossing: Wild World Savefile with this Tool.",
+				"category": [ "ACWW", "Checksum-Updater" ],
+				"console": [ "3DS", "DSi" ],
+				"last_updated": "v0.2.0",
+				"license": "gpl-3.0",
+				"version": "2021-09-24",
+				"screenshots": [{
+					"description": "Animal Crossing: Wild World Checksum-Updater",
+					"url": "https://raw.githubusercontent.com/SuperSaiyajinStackZ/Univ-Edit-Stuff/main/Screenshots/ACWW-Checksum-Updater.png"
+				}]
+			},
+			"Checksum-Updater.lua":  [{
+				"file": "https://github.com/SuperSaiyajinStackZ/Univ-Edit-Stuff/raw/main/scripts/ACWW/Checksum-Updater.lua",
+				"message": "Downloading Checksum-Updater.lua...",
+				"output": "sdmc:/3ds/Universal-Edit-Hex/Scripts/ACWW/Checksum-Updater.lua",
+				"type": "downloadFile"
+			}]
 		}
 	]
 }
