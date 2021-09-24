@@ -7,7 +7,7 @@
 		"file": "stack-univ-edit.unistore",
 		"sheetURL": "https://github.com/SuperSaiyajinStackZ/Univ-Edit-Stuff/raw/main/unistore/stack-univ-edit.t3x",
 		"sheet": "stack-univ-edit.t3x",
-		"revision": 3,
+		"revision": 4,
 		"version": 3
 	},
 	"storeContent": [
@@ -83,7 +83,7 @@
 				"last_updated": "v0.5.0",
 				"license": "gpl-3.0",
 				"version": "2021-09-24",
-				"icon_index": 1,
+				"icon_index": 2,
 				"screenshots": [{
 					"description": "The Sims 2 GBA Cast Editor",
 					"url": "https://raw.githubusercontent.com/SuperSaiyajinStackZ/Univ-Edit-Stuff/main/Screenshots/Sims2GBA-CastEditor.png"
@@ -112,7 +112,7 @@
 				"last_updated": "v0.5.0",
 				"license": "gpl-3.0",
 				"version": "2021-09-24",
-				"icon_index": 1,
+				"icon_index": 3,
 				"screenshots": [{
 					"description": "The Sims 2 GBA Episode Editor",
 					"url": "https://raw.githubusercontent.com/SuperSaiyajinStackZ/Univ-Edit-Stuff/main/Screenshots/Sims2GBA-EpisodeEditor.png"
@@ -147,7 +147,7 @@
 				"last_updated": "v0.3.0",
 				"license": "gpl-3.0",
 				"version": "2021-09-24",
-				"icon_index": 2,
+				"icon_index": 4,
 				"screenshots": [{
 					"description": "The Sims 2 NDS Last Saved Slot Detector (LSSD)",
 					"url": "https://raw.githubusercontent.com/SuperSaiyajinStackZ/Univ-Edit-Stuff/main/Screenshots/Sims2NDS-LSSD.png"
@@ -162,29 +162,6 @@
 		},
 		{
 			"info": {
-				"title": "The Urbz: Sims in the City GBA NDS Checksum-Updater",
-				"author": "SuperSaiyajinStackZ",
-				"description": "Update the Checksum of a Save Slot or the Settings of an The Urbz: Sims in the City Game Boy Advance or Nintendo DS Savefile with this Tool.",
-				"category": [ "Sims", "Urbz", "GBA", "NDS", "Checksum-Updater" ],
-				"console": [ "3DS", "DSi" ],
-				"last_updated": "v0.1.0",
-				"license": "gpl-3.0",
-				"version": "2021-09-24",
-				"icon_index": 4,
-				"screenshots": [{
-					"description": "The Urbz: Sims in the City Checksum-Updater",
-					"url": "https://raw.githubusercontent.com/SuperSaiyajinStackZ/Univ-Edit-Stuff/main/Screenshots/Urbz-Checksum-Updater.png"
-				}]
-			},
-			"Checksum-Updater.lua":  [{
-				"file": "https://github.com/SuperSaiyajinStackZ/Univ-Edit-Stuff/raw/main/scripts/Urbz/Common/Checksum-Updater.lua",
-				"message": "Downloading Checksum-Updater.lua...",
-				"output": "sdmc:/3ds/Universal-Edit-Hex/Scripts/Urbz/Common/Checksum-Updater.lua",
-				"type": "downloadFile"
-			}]
-		},
-		{
-			"info": {
 				"title": "Animal Crossing: Wild World Checksum-Updater",
 				"author": "SuperSaiyajinStackZ",
 				"description": "Fix the checksum of your Animal Crossing: Wild World Savefile with this Tool.",
@@ -193,7 +170,7 @@
 				"last_updated": "v0.2.0",
 				"license": "gpl-3.0",
 				"version": "2021-09-24",
-				"icon_index": 3,
+				"icon_index": 5,
 				"screenshots": [{
 					"description": "Animal Crossing: Wild World Checksum-Updater",
 					"url": "https://raw.githubusercontent.com/SuperSaiyajinStackZ/Univ-Edit-Stuff/main/Screenshots/ACWW-Checksum-Updater.png"
@@ -203,6 +180,29 @@
 				"file": "https://github.com/SuperSaiyajinStackZ/Univ-Edit-Stuff/raw/main/scripts/ACWW/Checksum-Updater.lua",
 				"message": "Downloading Checksum-Updater.lua...",
 				"output": "sdmc:/3ds/Universal-Edit-Hex/Scripts/ACWW/Checksum-Updater.lua",
+				"type": "downloadFile"
+			}]
+		},
+		{
+			"info": {
+				"title": "The Urbz: Sims in the City GBA NDS Checksum-Updater",
+				"author": "SuperSaiyajinStackZ",
+				"description": "Update the Checksum of a Save Slot or the Settings of an The Urbz: Sims in the City Game Boy Advance or Nintendo DS Savefile with this Tool.",
+				"category": [ "Sims", "Urbz", "GBA", "NDS", "Checksum-Updater" ],
+				"console": [ "3DS", "DSi" ],
+				"last_updated": "v0.1.0",
+				"license": "gpl-3.0",
+				"version": "2021-09-24",
+				"icon_index": 6,
+				"screenshots": [{
+					"description": "The Urbz: Sims in the City Checksum-Updater",
+					"url": "https://raw.githubusercontent.com/SuperSaiyajinStackZ/Univ-Edit-Stuff/main/Screenshots/Urbz-Checksum-Updater.png"
+				}]
+			},
+			"Checksum-Updater.lua":  [{
+				"file": "https://github.com/SuperSaiyajinStackZ/Univ-Edit-Stuff/raw/main/scripts/Urbz/Common/Checksum-Updater.lua",
+				"message": "Downloading Checksum-Updater.lua...",
+				"output": "sdmc:/3ds/Universal-Edit-Hex/Scripts/Urbz/Common/Checksum-Updater.lua",
 				"type": "downloadFile"
 			}]
 		}
