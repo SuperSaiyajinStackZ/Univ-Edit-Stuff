@@ -2,13 +2,54 @@
 	"storeInfo": {
 		"title": "StackZ's Universal-Edit Stuff",
 		"author": "SuperSaiyajinStackZ",
-		"description": "SuperSaiyajinStackZ's Universal-Edit and Universal-Edit-Hex related stuff into a UniStore!\n\nFrom Save Editing Tool scripts up to other stuff, you can find it here.",
+		"description": "SuperSaiyajinStackZ's Universal-Edit and Universal-Edit-Hex related stuff into a UniStore!\n\nFrom Save Editing Tool scripts up to other stuff, you can find it here.\n\nUniversal-Edit-Hex is required for most things, a download entry is provided as well.",
 		"url": "https://github.com/SuperSaiyajinStackZ/Univ-Edit-Stuff/raw/main/unistore/stack-univ-edit.unistore",
 		"file": "stack-univ-edit.unistore",
-		"revision": 2,
+		"sheetURL": "https://github.com/SuperSaiyajinStackZ/Univ-Edit-Stuff/raw/main/unistore/stack-univ-edit.t3x",
+		"sheet": "stack-univ-edit.t3x",
+		"revision": 3,
 		"version": 3
 	},
 	"storeContent": [
+		{
+			"info": {
+				"title": "Universal-Edit-Hex",
+				"author": "Universal-Team",
+				"description": "Hex editor for the Nintendo 3DS. Name is WIP. It only contains nightlies right now, as there is no official release yet.",
+				"category": [ "Universal-Edit-Hex" ],
+				"console": [ "3DS", "DSi" ],
+				"last_updated": "",
+				"license": "gpl-3.0",
+				"version": "v0.1.0",
+				"icon_index": 0,
+				"screenshots": [{
+					"description": "Universal-Edit-Hex (3DS) Main",
+					"url": "https://raw.githubusercontent.com/Universal-Team/Universal-Edit-Hex/main/resources/screenshots/main.png"
+				}]
+			},
+			"Universal-Edit-Hex.3dsx (nightly)":  [{
+				"file": "https://github.com/Universal-Team/extras/raw/master/builds/Universal-Edit-Hex/Universal-Edit-Hex.3dsx",
+				"message": "Downloading Universal-Edit-Hex.3dsx...",
+				"output": "sdmc:/3ds/Universal-Edit-Hex.3dsx",
+				"type": "downloadFile"
+			}],
+			"Universal-Edit-Hex.cia (nightly)":  [{
+				"file": "https://github.com/Universal-Team/extras/raw/master/builds/Universal-Edit-Hex/Universal-Edit-Hex.cia",
+				"message": "Downloading Universal-Edit-Hex.cia...",
+				"output": "sdmc:/Universal-Edit-Hex.cia",
+				"type": "downloadFile"
+			},
+			{
+				"file": "/Universal-Edit-Hex.cia",
+				"message": "Installing Universal-Edit-Hex.cia...",
+				"type": "installCia"
+			},
+			{
+				"file": "sdmc:/Universal-Edit-Hex.cia",
+				"message": "Deleting Universal-Edit-Hex.cia.",
+				"type": "deleteFile"
+			}]
+		},
 		{
 			"info": {
 				"title": "The Sims 2 GBA NDS Checksum-Updater",
@@ -19,6 +60,7 @@
 				"last_updated": "v0.4.0",
 				"license": "gpl-3.0",
 				"version": "2021-09-24",
+				"icon_index": 1,
 				"screenshots": [{
 					"description": "The Sims 2 GBA / NDS Checksum-Updater",
 					"url": "https://raw.githubusercontent.com/SuperSaiyajinStackZ/Univ-Edit-Stuff/main/Screenshots/Sims2-Checksum-Updater.png"
@@ -41,6 +83,7 @@
 				"last_updated": "v0.5.0",
 				"license": "gpl-3.0",
 				"version": "2021-09-24",
+				"icon_index": 1,
 				"screenshots": [{
 					"description": "The Sims 2 GBA Cast Editor",
 					"url": "https://raw.githubusercontent.com/SuperSaiyajinStackZ/Univ-Edit-Stuff/main/Screenshots/Sims2GBA-CastEditor.png"
@@ -69,6 +112,7 @@
 				"last_updated": "v0.5.0",
 				"license": "gpl-3.0",
 				"version": "2021-09-24",
+				"icon_index": 1,
 				"screenshots": [{
 					"description": "The Sims 2 GBA Episode Editor",
 					"url": "https://raw.githubusercontent.com/SuperSaiyajinStackZ/Univ-Edit-Stuff/main/Screenshots/Sims2GBA-EpisodeEditor.png"
@@ -103,6 +147,7 @@
 				"last_updated": "v0.3.0",
 				"license": "gpl-3.0",
 				"version": "2021-09-24",
+				"icon_index": 2,
 				"screenshots": [{
 					"description": "The Sims 2 NDS Last Saved Slot Detector (LSSD)",
 					"url": "https://raw.githubusercontent.com/SuperSaiyajinStackZ/Univ-Edit-Stuff/main/Screenshots/Sims2NDS-LSSD.png"
@@ -125,6 +170,7 @@
 				"last_updated": "v0.1.0",
 				"license": "gpl-3.0",
 				"version": "2021-09-24",
+				"icon_index": 4,
 				"screenshots": [{
 					"description": "The Urbz: Sims in the City Checksum-Updater",
 					"url": "https://raw.githubusercontent.com/SuperSaiyajinStackZ/Univ-Edit-Stuff/main/Screenshots/Urbz-Checksum-Updater.png"
@@ -147,6 +193,7 @@
 				"last_updated": "v0.2.0",
 				"license": "gpl-3.0",
 				"version": "2021-09-24",
+				"icon_index": 3,
 				"screenshots": [{
 					"description": "Animal Crossing: Wild World Checksum-Updater",
 					"url": "https://raw.githubusercontent.com/SuperSaiyajinStackZ/Univ-Edit-Stuff/main/Screenshots/ACWW-Checksum-Updater.png"
