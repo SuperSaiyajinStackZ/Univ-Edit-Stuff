@@ -6,6 +6,7 @@ You will be able to find the following things in the future:
 - [x] The Sims 2 GBA and NDS Scripts and Labels for Universal-Edit-Hex.
 - [x] Animal Crossing Wild World Scripts and Labels for Universal-Edit-Hex.
 - [x] The Urbz: Sims in the City GBA and NDS Scripts and Labels for Universal-Edit-Hex.
+- [x] The Sims Bustin' Out GBA Scripts and Labels for Universal-Edit-Hex.
 - [x] Some other stuff, not sure yet.
 
 Those will be stored in separate folders, those would be the following:
@@ -20,6 +21,8 @@ Those will be stored in separate folders, those would be the following:
 * The Urbz: Sims in the City GBA: `scripts/Urbz/GBA/` (From Checksum-Updater up to some editing tools for The Urbz: Sims in the City GBA).
 * The Urbz: Sims in the City NDS: `scripts/Urbz/NDS/` (From Checksum-Updater up to some editing tools for The Urbz: Sims in the City NDS).
 * The Urbz: Sims in the City `scripts/Urbz/Common/` (Some shared things related for The Urbz: Sims in the City GBA and NDS).
+
+* The Sims Bustin' Out `scripts/BustinOut/` (The base directory for The Sims Bustin' Out).
 
 
 You can find Universal-Edit-Hex [here](https://github.com/Universal-Team/Universal-Edit-Hex). (This version is used for save editing related stuff for this repository).

@@ -1,0 +1,3 @@
+@echo Building Spritesheet...
+tex3ds -i icons.t3s -o ../stack-univ-edit.t3x
+@echo off
